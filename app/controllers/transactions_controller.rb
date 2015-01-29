@@ -5,7 +5,7 @@ class TransactionsController < ApplicationController
   # GET /transactions.json
   def index
     @transactions = Transaction.all
-    @balance = Transaction.balance
+    @balance = Transaction.balance.blank? ? 0 : Transaction.balance
     @transaction_number = Transaction.all.length
   end
 
